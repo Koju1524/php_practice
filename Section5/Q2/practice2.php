@@ -66,18 +66,11 @@ echo '<br>';
 
 $ageList = [25, 30, 18];
 
-// foreach ($personalInfos as $person ) {
-//     array_push($personalInfos[], $ageList);
-// }
+foreach ($ageList as $person => $age ) {
+    ($personalInfos[$person]['age'] = $age);
+}
 
-// foreach ($ageList as $age) {
-//   echo $age;
-//   echo '<br>';
-// }
-
-// array_push($personalInfos, $ageList);
-
-// var_dump($personalInfos);
+var_dump($personalInfos);
 
 //Q3
 echo 'Q3-1';

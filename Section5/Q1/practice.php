@@ -98,18 +98,14 @@
   echo 'Q9';
   echo '<br>';
 
-  $prefecturalCapital = ['東京' => '新宿区', '神奈川' => '横浜市', '千葉' => '千葉市', '埼玉' => 'さいたま市', '栃木' => '宇都宮市', '群馬' =>'前橋市', '茨城' => '水戸市', '愛知' => '愛知市', '大阪' => '大阪市'];
+  $prefecturalCapital = ['東京都' => '新宿区', '神奈川県' => '横浜市', '千葉県' => '千葉市', '埼玉県' => 'さいたま市', '栃木県' => '宇都宮市', '群馬県' =>'前橋市', '茨城' => '水戸市', '愛知県' => '愛知市', '大阪府' => '大阪市'];
   foreach ($prefecturalCapital as $prefecture => $capital) {
-      if ($prefecture === '愛知') {
-          echo $prefecture . '県は関東地方ではありません。';
+      if ($prefecture === '愛知県' or $prefecture === '大阪府') {
+          echo $prefecture . 'は関東地方ではありません。';
           echo '<br>';
       } else {
-          if ($prefecture === '大阪') {
-              echo $prefecture . '府は関東地方ではありません。';
-              return false;
-          }
-            echo $prefecture . '県の県庁所在地は、' . $capital . 'です。';
-            echo '<br>';
+          echo $prefecture . 'の県庁所在地は、' . $capital . 'です。';
+          echo '<br>';
       }
   }
   echo '<br>';
