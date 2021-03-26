@@ -24,10 +24,9 @@
   echo 'Q3';
   echo '<br>';
 
+  $currentTime = date('Y年m月d日 H時i分s秒');
+  echo '現在時刻は、' . $currentTime . 'です。';
 
-  $currentTime = new DateTime(); // DateTime class
-  $time = $currentTime->format('Y年m月d日 H時i分s秒'); //format method
-  echo '現在時刻は、' . $time . 'です。';
   echo '<br>';
   echo '<br>';
 
@@ -51,10 +50,10 @@
   $device = 'mac';
 
   if ($device === 'mac') {
-      echo '使用OSは、macです。';
+      echo '使用OSは、' . $device . 'です。';
   }  else {
       if ($device === 'windows') {
-          echo '使用OSは、windowsです。';
+          echo '使用OSは、' . $device . 'です。';
       }
         echo 'どちらでもありません。';
     }
@@ -66,8 +65,17 @@
   echo 'Q6';
   echo '<br>';
 
-  $kantoArea = ['東京', '千葉', '埼玉', '神奈川', '群馬', '栃木', '茨城'];
-  echo "$kantoArea[5]県と$kantoArea[1]県は関東地方の都道府県です。";
+  $kantoArea = [
+    '東京',
+    '千葉',
+    '埼玉',
+    '神奈川',
+    '群馬',
+    '栃木',
+    '茨城'
+  ];
+
+  echo $kantoArea[5] . '県と' . $kantoArea[1] . '県は関東地方の都道府県です。';
   echo '<br>';
   echo '<br>';
 
@@ -75,9 +83,16 @@
   echo 'Q7';
   echo '<br>';
 
-  $area = ['東京' => '新宿区', '神奈川' => '横浜市', '千葉' => '千葉市', '埼玉' => 'さいたま市', '栃木' => '宇都宮市', '群馬' =>'前橋市', '茨城' => '水戸市'];
-  foreach ($area as $value) {
-      echo $value;
+  $area = [
+    '東京' => '新宿区',
+    '神奈川' => '横浜市',
+    '埼玉' => 'さいたま市',
+    '栃木' => '宇都宮市',
+    '群馬' =>'前橋市',
+    '茨城' => '水戸市'
+  ];
+  foreach ($area as $prefectureCapital) {
+      echo $prefectureCapital;
       echo '<br>';
   }
   echo '<br>';
@@ -87,10 +102,10 @@
   echo '<br>';
 
   foreach ($area as $prefecture => $city) {
-    if ($prefecture === '埼玉'){
-        echo $prefecture . '県の県庁所在地は、' . $city. 'です。';
-        echo '<br>';
-    }
+      if ($prefecture === '埼玉') {
+          echo $prefecture . '県の県庁所在地は、' . $city. 'です。';
+          echo '<br>';
+      }
   }
   echo '<br>';
 
@@ -98,9 +113,20 @@
   echo 'Q9';
   echo '<br>';
 
-  $prefecturalCapital = ['東京都' => '新宿区', '神奈川県' => '横浜市', '千葉県' => '千葉市', '埼玉県' => 'さいたま市', '栃木県' => '宇都宮市', '群馬県' =>'前橋市', '茨城' => '水戸市', '愛知県' => '愛知市', '大阪府' => '大阪市'];
+  $prefecturalCapital = [
+    '東京都' => '新宿区',
+    '神奈川県' => '横浜市',
+    '千葉県' => '千葉市',
+    '埼玉県' => 'さいたま市',
+    '栃木県' => '宇都宮市',
+    '群馬県' =>'前橋市',
+    '茨城' => '水戸市',
+    '愛知県' => '愛知市',
+    '大阪府' => '大阪市'
+  ];
+
   foreach ($prefecturalCapital as $prefecture => $capital) {
-      if ($prefecture === '愛知県' or $prefecture === '大阪府') {
+      if ($prefecture === '愛知県' || $prefecture === '大阪府') {
           echo $prefecture . 'は関東地方ではありません。';
           echo '<br>';
       } else {
@@ -114,8 +140,9 @@
   echo 'Q10';
   echo '<br>';
 
-  function hello($name) {
-    echo $name. 'さん、こんにちは。';
+  function hello($name)
+  {
+    echo $name . 'さん、こんにちは。';
   }
   hello('金谷');
   echo '<br>';
@@ -128,19 +155,22 @@
   echo 'Q11';
   echo '<br>';
 
-  function calcTaxInPrice($price) {
-    $taxInPrice =  1.1 * $price;
-    echo $price . '円の商品の税込価格は' . $taxInPrice . "円です。";
-    echo '<br>';
+  function calcTaxInPrice($price)
+  {
+    $taxInPrice = 1.1 * $price;
+    return $price . '円の商品の税込価格は' . $taxInPrice . '円です。';
   }
-  calcTaxInPrice(1000);
+
+  echo calcTaxInPrice(1000);
+  echo '<br>';
   echo '<br>';
 
   //Q12
   echo 'Q12';
   echo '<br>';
 
-  function distinguishNum($num) {
+  function distinguishNum($num)
+  {
     if ($num % 2 === 0) {
         echo $num . 'は偶数です。';
     } else {
@@ -195,8 +225,8 @@
 
       public function __construct($studentId, $name)
       {
-          $this->studentId = $studentId;
-          $this->name = $name;
+          $this->studentId = $studentId; //scope
+          $this->name = $name;  //scope
       }
 
       public function studentInfo()
