@@ -76,7 +76,7 @@ var_dump($personalInfos);
 echo 'Q3-1';
 echo '<br>';
 
-$date = new DateTime();  //property
+$date = new DateTime();  //class
 
 $last_date = new DateTime(date('Y-m-d', strtotime('-1 month', $date->getTimestamp())));
 $last_date = $last_date->format('Y-m-d');
